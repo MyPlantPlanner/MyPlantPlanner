@@ -29,3 +29,9 @@ The following animation demonstrates the application functionality:
 The project was uploaded to GitHub at the following repository: https://github.com/MyPlantPlanner/MyPlantPlanner/
 
 You can access the deployed application with the GitHub Pages link: https://MyPlantPlanner.github.io/MyPlantPlanner
+
+### Authors
+
+```
+
+```
