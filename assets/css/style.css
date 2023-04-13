@@ -1,0 +1,37 @@
+.new {
+    border: 1px solid gray;
+}
+
+
+
+.project-image {
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.hero-img {
+    background-image: url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg);
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg)
+}
+
+.container-hero-text {
+    color: white;
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+
+#herotitle{
+    color: white;
+    font-size: 60px;
+}
+#herosubtitle {
+    color: white;
+    font-size: 30px;
+}
+
+#searchbar{
+    background-color:;
+}

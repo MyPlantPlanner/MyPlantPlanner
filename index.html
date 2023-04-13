@@ -1,53 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyPlantPlanner</title>
+    <title>MyPlantPlanner - Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <header class="m-1">
-        <div class="navbar">
-            <h1 class="navbar-brand m-3">MPP</h1>
-            <nav class="">
-                <ul>
-                    <li>Home</li>
-                    <li>My Plants</li>
-                    <li>Explore</li>
-                    <li>Weather</li>
-                    <li>Something Else</li>
-                    <iframe src="https://www.meteoblue.com/en/weather/widget/daily?geoloc=detect&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&precipunit=INCH&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&humidity=1&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&spot=1&pressure=0&layout=light"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 216px; height: 420px"></iframe><div><!-- DO NOT REMOVE THIS LINK --><a href="https://www.meteoblue.com/en/weather/week/index?utm_source=weather_widget&utm_medium=linkus&utm_content=daily&utm_campaign=Weather%2BWidget" target="_blank" rel="noopener">meteoblue</a></div>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <div class="hero-body">
-                <p class="title">
-                    MyPlantPlanner
-                </p>
-                <p class="subtitle">
-                    MPP Info
-                </p>
+    <header>
+        <section class="hero is-primary is-medium">
+            <!-- Hero head: will stick at the top -->
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item">
+                                <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner
+                                </h1>
+                            </a>
+                            <span class="navbar-burger" data-target="navbarMenuHeroA">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenuHeroA" class="navbar-menu">
+                            <div class="navbar-end">
+                                <a class="navbar-item is-active" href="./index.html">
+                                    Home
+                                </a>
+                                <a class="navbar-item" href="./myplants.html">
+                                    My Plants
+                                </a>
+                                <a class="navbar-item" href="./explore.html">
+                                    Explore
+                                </a>
+                                <span class="navbar-item">
+                                    <a class="button is-primary is-inverted">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Get Started</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="hero-img has-background is-transparent">
+            <div class="hero-body">
+                <div class="container-hero-text has-text-centered">
+                    <h1 id="herotitle">
+                        MyPlantPlanner
+                    </h1>
+                    <h2 id="herosubtitle">
+                        Reinvent the way you keep your plants healthy by using MyPlantPlanner!
+                    </h2>
+                    <h2 id="herosubtitle">
+                        From keeping track of your watering, to learning more specifics about your plants, myPlantPlanner has something that every plant enthusiast will love!
+                    </h2>
+                    <button class="button is-success p-5 m-4 has-text-weight-bold">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!--<div class="columns">
+            <div class="column is-narrow">
+              <div class="box" style="width: 200px;">
+                <figure class="image is-1by1">
+                    <img class="project-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_HBU9_3jCQvYQ_IsGfhdLCevHQ2rJxul6p9ypzwUr-pclo2PQbY-gQyocpyVlj-uJUc&usqp=CAU">
+                </figure>
+                <p class="title is-5">Narrow column</p>
+                <p class="subtitle">This column is only 200px wide. </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="box">
+                <figure class="image is-1by1">
+                    <img class="project-image"
+                        src="https://cdn-ailom.nitrocdn.com/opKfgPWIFCjrldmbrdKJvIDPqBFvBPjr/assets/images/optimized/rev-546509e/wp-content/uploads/2022/05/18-Cool-And-Unique-Houseplants-That-You-Must-See-To-Believe.png">
+                </figure>
+                <p class="title is-5">Flexible column</p>
+                <p class="subtitle">This column will take up the remaining space available. Aliquam sagittis rhoncus vulputate. Cras non luctus sem,
+                    sed tincidunt ligula. Vestibulum at nunc
+                    elit. Praesent aliquet ligula mi, in luctus elit volutpat porta. Phasellus molestie diam vel
+                    nisi sodales, a eleifend augue laoreet. Sed nec eleifend justo. Nam et sollicitudin odio.</p>
+              </div>
+            </div>
+          </div>-->
+
+          <div class="card">
+            <div class="card-content">
+              
+              <div class="content">
+                <figure class="image is-128x128">
+                    <img class="project-image"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_HBU9_3jCQvYQ_IsGfhdLCevHQ2rJxul6p9ypzwUr-pclo2PQbY-gQyocpyVlj-uJUc&usqp=CAU">
+                </figure>
+                Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              
+              <div class="content">
+                <figure class="image is-128x128">
+                    <img class="project-image"
+                        src="https://cdn-ailom.nitrocdn.com/opKfgPWIFCjrldmbrdKJvIDPqBFvBPjr/assets/images/optimized/rev-546509e/wp-content/uploads/2022/05/18-Cool-And-Unique-Houseplants-That-You-Must-See-To-Believe.png">
+                </figure>
+                Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+              </div>
+            </div>
+          </div>
+
+        <!--<figure class="image is-128x128">
+            <img class="project-image"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_HBU9_3jCQvYQ_IsGfhdLCevHQ2rJxul6p9ypzwUr-pclo2PQbY-gQyocpyVlj-uJUc&usqp=CAU">
+        </figure>
+        <figure class="image is-128x128">
+            <img class="project-image"
+                src="https://cdn-ailom.nitrocdn.com/opKfgPWIFCjrldmbrdKJvIDPqBFvBPjr/assets/images/optimized/rev-546509e/wp-content/uploads/2022/05/18-Cool-And-Unique-Houseplants-That-You-Must-See-To-Believe.png">
+        </figure>-->
+
+
+        <h2>How to Use</h2>
+        <p>My Plant Planner will help you keep track of .......Aliquam sagittis rhoncus vulputate. Cras non luctus sem,
+            sed tincidunt ligula. Vestibulum at nunc
+            elit. Praesent aliquet ligula mi, in luctus elit volutpat porta. Phasellus molestie diam vel
+            nisi sodales, a eleifend augue laoreet. Sed nec eleifend justo. Nam et sollicitudin odio.</p>
+        <figure>
+            <img class="project-image"
+                src="https://www.thespruce.com/thmb/VF8JJ0PT75Eytn5Ng6rj-3MzdbQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/most-popular-houseplants-4766580-2-71981826fb0a461786109b3e4f5aa09d.jpg">
+            <img class="project-image"
+                src="https://media.istockphoto.com/id/510059940/photo/miniature-succulent-plants.jpg?s=1024x1024&w=is&k=20&c=97T6inseCGLnBI2XIdUVNW1Kl335s3bFa50eGB3NJ2k=">
+            <figcaption>
+                Figure 1: Some beautiful placeholders
+            </figcaption>
+        </figure>
+        <h2>About My Plant Planner</h2>
+        <p>Here at MPP we love plants!! Our mission is to help you take care of your plants so that you can have
+            .....Cras in nibh lacinia, venenatis nisi et, auctor urna. Donec pulvinar lacus sed diam dignissim, ut
+            eleifend eros accumsan. Phasellus non tortor eros. Ut sed rutrum lacus. Etiam purus nunc,
+            scelerisque quis enim vitae, malesuada ultrices turpis. Nunc vitae maximus purus, nec
+            consectetur dui. Suspendisse euismod, elit vel rutrum commodo, ipsum tortor maximus dui, sed
+            varius sapien odio vitae est. Etiam at cursus metus.</p>
+        </div>
+        </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="has-background-primary">
         <p>Contact</p>
         <p><a href="mailto:hege@example.com">contact@example.com</a></p>
         <a href="#" class="fa fa-facebook"></a>
         <a href="#" class="fa fa-twitter"></a>
 
     </footer>
-
+    <script type="text/javascript" src="https://widget.iqair.com/script/widget_v3.0.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
