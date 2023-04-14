@@ -4,17 +4,37 @@
 
 
 
+.column {
+    margin: 10px;
+    background: linear-gradient(#f3ecec, #1cb365);#f3ecec
+}
+
+.box {
+    background-color: rgb(39, 69, 45);
+    color: white;
+    text-decoration: underline;
+}
+
+blockquote {
+    padding: 10px;
+}
+
 .project-image {
-    margin-top: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
+    display: block;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    padding: 30px;
+    float: right;
+    width: 50%;;
     border-radius: 10px;
 }
 
 .hero-img {
     background-image: url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg);
     height: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg)
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container-hero-text {
@@ -35,3 +55,4 @@
 #searchbar{
     background-color:;
 }
+
