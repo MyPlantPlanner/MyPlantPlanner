@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <section class="hero is-primary is-medium">
+        <section class="hero is-primary is-medium mb-5">
             <!-- Hero head: will stick at the top -->
             <div class="hero-head">
                 <nav class="navbar">
@@ -54,187 +54,45 @@
             </div>
         </section>
     </header>
-    <div class= "container">
-        <div class="container-hero-text has-text-centered">
-            <div id= "searchbar" class="columns">
-                <div class="column is-centered">
-                    <label class="label is-large">Find ya some Plant:</label>
-                <div class="field has-addons"
-                    <p class="control is-expanded">
-                        <!-- search by type functionality-->
-                        <span class="select">
-                            <select>
-                                <option>All</option>
-                            </select>
-                        </span class= "icon is-small-left"> 
-                    </p>
-                    <p class="control has-icons-left is-expanded">
-                        <input class="input" type="text" placeholder="Pothos, Palm, Monstera...">
-                        <span class="icon is-large is-left">
-                            <ion-icon name="leaf-outline"></ion-icon>
 
-                    </p>
-                    <p class="control">
-                        <button class="button is-success" id="search-button">search</button>
-                    </p>
-                </div>
-            </div>
+    <div id="load-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title has-text-centered">Load Plants Data</p>
+            <button id="close-modal" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body has-text-centered">
+            <p>Please click the button below to load plants data.</p>
+        </section>
+        <footer class="modal-card-foot is-flex is-justify-content-center">
+            <button id="load-button" class="button is-success ">Load Data</button>
+        </footer>
         </div>
-    </div>   
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
-
+    </div>
     
     <main>
-        <div id="row-1" class="mt-6">
-            <div class="columns mx-6 is-centered">
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img id="medium-image" src="https://perenual.com/storage/species_image/1_abies_alba/og/1536px-Abies_alba_SkalitC3A9.jpg" alt="Placeholder image">
-                        </figure>
+        <div id="enumerate-objects" class="container">
+            <div id="row-0">
+                <!-- Search bar and page left or right with arrow buttons -->
+                <div class="columns is-centered">
+                    <div class="is-one-fifth mx-2">
+                        <button id="page-back" class="button is-dark">&larr;</button>
                     </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p id="common-name" class="title is-3">European Silver Fir</p>
-                                <p id="scientific-name" class="subtitle is-6">Abies alba</p>
-                            </div>
-                        </div>
-                        <p class="title is-5">Watering:<span id="watering" class="subtitle is-6 ml-2">Frequent</span></p>
-                        <progress class="progress is-link" value="60" max="100"></progress>
-                        <p class="title is-5">Sunlight:<span id="sunlight" class="subtitle is-6 ml-2">Any</span></p>
-                        <footer class="card-footer-item">
-                            <button class="button is-warning is-outlined">
-                                <span class="icon">
-                                    <i class="fa fa-star"></i>
-                                </span>
-                            </button>
-                        </footer>
-                    </div>
-                </div>
-
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="#" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                </figure>
-                            </div>
-
-                            <div class="media-content">
-                                <p class="title is-4">John Smith</p>
-                                <p class="subtitle is-6">@johnsmith</p>
-                            </div>
-                        </div>
-
-                        <div id="fun-fact" class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="#" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                </figure>
-                            </div>
-
-                            <div class="media-content">
-                                <p class="title is-4">John Smith</p>
-                                <p class="subtitle is-6">@johnsmith</p>
-                            </div>
-                        </div>
-
-                        <div id="fun-fact" class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="#" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                </figure>
-                            </div>
-
-                            <div class="media-content">
-                                <p class="title is-4">John Smith</p>
-                                <p class="subtitle is-6">@johnsmith</p>
-                            </div>
-                        </div>
-
-                        <div id="fun-fact" class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="#" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                </figure>
-                            </div>
-
-                            <div class="media-content">
-                                <p class="title is-4">John Smith</p>
-                                <p class="subtitle is-6">@johnsmith</p>
-                            </div>
-                        </div>
-
-                        <div id="fun-fact" class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                        </div>
+                    <form class="is-one-fifth mx-2">
+                        <input type="search" placeholder="Search..." class="input is-dark">
+                        <button type="submit" id="search-button">Search</button>
+                    </form>
+                    <div class="is-one-fifth mx-2">
+                        <button id="page-forward" class="button is-dark">&rarr;</button>
                     </div>
                 </div>
             </div>
+
+            <div id="page-title" class="title is-0 has-text-centered mt-6"></div>
         </div>
+
+        <div id="plant-list-container" class="card mt-5"></div>
     </main>
 
     <footer class="footer has-background-primary has-text-centered is-flex is-flex-direction-column mt-6">
@@ -252,6 +110,6 @@
         </div>
     </footer>
 
-    <!-- <script src="./assets/js/explore.js"></script> -->
+    <script src="./assets/js/explore.js"></script>
 </body>
 </html>

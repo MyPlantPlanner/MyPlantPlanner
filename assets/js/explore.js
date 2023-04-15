@@ -1,105 +1,124 @@
-// This js file is linked to the explore.html
 // Declarations
-const APIKey = 'sk-gZWW6438a93be1f2f505';
 const explorePlantsMap = new Map();
-const searchButton = document.getElementById('search-button');
+const pageForwardButton = document.getElementById('page-forward');
+const pageBackButton = document.getElementById('page-back');
+const APIKey = 'sk-A5va6434c28d91fdb480';
 
-// Use Fetch in a function to display plants in cards on explore page: 
-// const findMeSomePlants = function() {
-//     const queryURL = "https://perenual.com/api/species-list?indoor=1&key=" + APIKey + "&page=1";
-//     fetch(queryURL)
-//         .then((response) => {
-//             if (!response.ok) {
-//                 throw new Error("Plant not found");
-//             }
-//             return response.json();
-//         })
-//         .then((data) => { 
-//             data.forEach((plant) => {
-//                 plantsMap.set(plant.id, plant);
-//             });
-//             // Save plantsMap to local storage
-//             localStorage.setItem('plantsMap', JSON.stringify(Array.from(plantsMap.entries())));
-//         })
-//         .catch((error) => {
-//             console.error(error);
-//             alert(error.message);
-//     });
-// };
+let currentPage = 1;
 
-const findMeSomePlants = function () {
-    const queryURL = 'https://perenual.com/api/species-list?page=1&indoor=1&key=' + APIKey;
-
-    // Fetch API data
+const loadPlantsData = () => {
+    let i = 1;
+    const fetchData = () => {
+    const queryURL =
+        "https://perenual.com/api/species-list?indoor=1&page=" +
+        i +
+        "&key=" +
+        APIKey;
     fetch(queryURL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Plant not found');
-            }
+        .then((response) => {
+        if (response.ok) {
             return response.json();
+        }
+        throw new Error("Network response was not ok.");
         })
         .then(data => {
-            // Save data to search history map
-            localStorage.setItem('page-1', JSON.stringify(data));
-            explorePlantsMap.set(plant.commone_name, JSON.stringify(data));
-            localStorage.setItem('searchHistoryMap', JSON.stringify([...searchHistoryMap.entries()]));
-
-            // Create button
-            searchHistoryButton(citySearchUserInput.value);
-
-            // Delete oldest search history if more than 10
-            if (searchHistoryMap.size > 10) {
-                const oldestCity = searchHistoryMap.keys().next().value;
-                searchHistoryMap.delete(oldestCity);
-                localStorage.setItem('searchHistoryMap', JSON.stringify([...searchHistoryMap.entries()]));
-                const oldestButton = document.getElementById(oldestCity);
-                if (oldestButton) {
-                    oldestButton.remove();
-                };
-            };
-
-            console.log(data);
-
-            // Display weather data
-        cityName.textContent = `${data.city.name}, ${new Date(data.list[0].dt * 1000).toLocaleDateString()}`;
-        tempNow.textContent = data.list[0].main.temp.toFixed(0) + '\u00B0 F';
-        windNow.textContent = data.list[0].wind.speed + ' mph';
-        humidityNow.textContent = data.list[0].main.humidity + '%';
-        weatherIconNow.src = `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`;
-        dateTomorrow.textContent = `${new Date((data.list[0].dt + 86400 ) * 1000).toLocaleDateString()}`;
-        tempTomorrow.textContent = data.list[1].main.temp.toFixed(0) + '\u00B0 F';
-        windTomorrow.textContent = data.list[1].wind.speed + ' mph';
-        humidityTomorrow.textContent = data.list[1].main.humidity + '%';
-        weatherIconTomorrow.src = `https://openweathermap.org/img/w/${data.list[1].weather[0].icon}.png`;
-        dateIn2Days.textContent = `${new Date((data.list[0].dt + 172800 ) * 1000).toLocaleDateString()}`;
-        tempIn2Days.textContent = data.list[2].main.temp.toFixed(0) + '\u00B0 F';
-        windIn2Days.textContent = data.list[2].wind.speed + ' mph';
-        humidityIn2Days.textContent = data.list[2].main.humidity + '%';
-        weatherIconIn2Days.src = `https://openweathermap.org/img/w/${data.list[2].weather[0].icon}.png`;
-        dateIn3Days.textContent = `${new Date((data.list[0].dt + 259200 ) * 1000).toLocaleDateString()}`;
-        tempIn3Days.textContent = data.list[3].main.temp.toFixed(0) + '\u00B0 F';
-        windIn3Days.textContent = data.list[3].wind.speed + ' mph';
-        humidityIn3Days.textContent = data.list[3].main.humidity + '%';
-        weatherIconIn3Days.src = `https://openweathermap.org/img/w/${data.list[3].weather[0].icon}.png`;
-        dateIn4Days.textContent = `${new Date((data.list[0].dt + 345600 ) * 1000).toLocaleDateString()}`;
-        tempIn4Days.textContent = data.list[4].main.temp.toFixed(0) + '\u00B0 F';
-        windIn4Days.textContent = data.list[4].wind.speed + ' mph';
-        humidityIn4Days.textContent = data.list[4].main.humidity + '%';
-        weatherIconIn4Days.src = `https://openweathermap.org/img/w/${data.list[4].weather[0].icon}.png`;
-        dateIn5Days.textContent = `${new Date((data.list[0].dt + 432000 ) * 1000).toLocaleDateString()}`;
-        tempIn5Days.textContent = data.list[5].main.temp.toFixed(0) + '\u00B0 F';
-        windIn5Days.textContent = data.list[5].wind.speed + ' mph';
-        humidityIn5Days.textContent = data.list[5].main.humidity + '%';
-        weatherIconIn5Days.src = `https://openweathermap.org/img/w/${data.list[5].weather[0].icon}.png`;
+            if (data && data.data && data.data.length > 0) {
+                data.data.forEach(plant => {
+                    explorePlantsMap.set(plant.common_name, plant);
+                });
+                i++;
+                fetchData();
+            } else {
+                localStorage.setItem('explorePlantsMap', JSON.stringify(Array.from(explorePlantsMap.entries())));
+                populatePlants(currentPage);
+                console.log(explorePlantsMap);
+            }
         })
-        .catch(error => {
-            console.error(error);
-            alert(error.message);
+        .catch((error) => {
+        console.error("There was a problem fetching the data:", error);
         });
+    };
+    fetchData();
 };
 
-// Event Listener
-searchButton.addEventListener('click', findMeSomePlants);
-// if (plantsMap.size === 0) {
-//     findMeSomePlants();
-// }
+
+function populatePlants(pageNumber) {
+    const pageSize = 30;
+    const startIndex = (pageNumber - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const plants = Array.from(explorePlantsMap.values()).slice(startIndex, endIndex);
+
+    // Write page number to DOM
+    const pageTitle = document.getElementById('page-title');
+    pageTitle.textContent = `Page ${pageNumber}`;
+
+    // Clear plant list container
+    const plantListContainer = document.getElementById('plant-list-container');
+    plantListContainer.className = 'columns is-centered my-6 is-flex is-flex-wrap-wrap';
+    plantListContainer.innerHTML = '';
+
+    // Populate plant list
+    plants.forEach(plant => {
+        // Check if the plant data exists
+        if (plant) {
+            // Check if any required data is missing
+            const imageUrl = plant.default_image.original_url || '';
+            const commonName = plant.common_name || '';
+            const scientificName = plant.scientific_name || '';
+
+            // Create the plant list item
+            const plantListItem = document.createElement('div');
+            plantListItem.className = 'column card is-one-fifth m-1 is-flex is-flex-direction-column';
+            plantListItem.innerHTML = `
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img id="medium-image" src="${imageUrl}" alt="${commonName}">
+                    </figure>
+                </div>
+                <div class="card-content is-flex-grow-1">
+                    <div class="media">
+                        <div class="media-content">
+                            <p id="common-name" class="title is-3">${commonName}</p>
+                            <p id="scientific-name" class="subtitle is-6">${scientificName}</p>
+                        </div>
+                    </div>
+                </div>
+                <footer class="card-footer is-flex-shrink-0">
+                    <p class= "card-footer-item">
+                        <button class="button is-warning is-outlined">
+                            <span class="icon">
+                                <i class="fa fa-heart"></i>
+                            </span>
+                        </button>
+                    </p>
+                </footer>
+            `;
+            plantListContainer.appendChild(plantListItem);
+        }
+    });
+}
+
+    pageForwardButton.addEventListener('click', () => {
+        currentPage++;
+        populatePlants(currentPage);
+});
+
+pageBackButton.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        populatePlants(currentPage);
+    }
+})
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    if (explorePlantsMap.size === 0) {
+        const modal = document.getElementById('load-modal');
+        modal.style.display = 'block';
+
+        const loadButton = document.getElementById('load-button');
+        loadButton.addEventListener('click', () => {
+            loadPlantsData();
+            modal.style.display = 'none';
+        });
+    }
+});
