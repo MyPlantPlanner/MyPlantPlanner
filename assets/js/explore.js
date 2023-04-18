@@ -5,6 +5,16 @@ const pageBackButton = document.getElementById('page-back');
 const APIKey = 'sk-gZWW6438a93be1f2f505';
 let currentPage = 1;
 
+// function to save the Favorites array to localStorage
+const saveFavorites = (favorites) => {
+    localStorage.setItem('Favorites', JSON.stringify(favorites));
+};
+
+// get Favorites array from localStorage, or create an empty array if it doesn't exist
+let Favorites = JSON.parse(localStorage.getItem('Favorites')) || [];
+
+// localStorage.getItem('explorePlantsMap')
+
 const loadPlantsData = () => {
     let i = 1;
     const fetchData = () => {
@@ -42,6 +52,7 @@ const loadPlantsData = () => {
 
 
 function populatePlants(pageNumber) {
+    let explorePlantsMap = new Map(JSON.parse(localStorage.getItem('explorePlantsMap')));
     const pageSize = 30;
     const startIndex = (pageNumber - 1) * pageSize;
     const endIndex = startIndex + pageSize;
@@ -97,12 +108,12 @@ function populatePlants(pageNumber) {
                 `;
             // Heart button click handler
             heartButton.addEventListener('click', () => {
-                const commonName = plant.common_name;
+                const plantID = plant.id;
             
                 // check if the plant is already in the Favorites array
-                if (!Favorites.includes(commonName)) {
+                if (!Favorites.includes(plantID)) {
                     // add the common name to the Favorites array and save to localStorage
-                    Favorites.push(commonName);
+                    Favorites.push(plantID);
                     saveFavorites(Favorites);
                 }
             });
@@ -128,7 +139,21 @@ pageBackButton.addEventListener('click', () => {
 })
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    if (!localStorage.getItem('explorePlantsMap' || new Map(JSON.parse(localStorage.getItem('explorePlantsMap'))).size === 0)) {
+    let explorePlantsMap = new Map();
+
+    // Check if data exists in local storage
+    const localData = localStorage.getItem('explorePlantsMap');
+    if (localData) {
+        explorePlantsMap = new Map(JSON.parse(localStorage.getItem('explorePlantsMap')));
+    }
+
+    populatePlants(currentPage);
+
+    // If data exists, set explorePlantsMap to the parsed data from local storage
+    if (localData) {
+    explorePlantsMap = new Map(JSON.parse(localData));
+    }
+    if (explorePlantsMap.size === 0) {
         const modal = document.getElementById('load-modal');
         modal.style.display = 'block';
 
@@ -138,6 +163,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             modal.style.display = 'none';
         });
     } else {
-        populatePlants();
+        populatePlants(currentPage);
     }
 });

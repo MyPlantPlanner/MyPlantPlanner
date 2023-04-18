@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPlantPlanner - My Plants</title>
+    <!--Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap">
+    <!--Bulma-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom Style-->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -56,46 +61,34 @@
         </section>
     </header>
 
+    
     <main>
-        <div id="row-1" class="mt-6">
-            <div class="columns mx-6 is-centered">
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img id="medium-image" src="https://perenual.com/storage/species_image/1_abies_alba/og/1536px-Abies_alba_SkalitC3A9.jpg" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p id="common-name" class="title is-3">European Silver Fir</p>
-                                <p id="scientific-name" class="subtitle is-6">Abies alba</p>
-                            </div>
-                        </div>
-                        <p class="title is-5">Watering:<span id="watering" class="subtitle is-6 ml-2">Frequent</span></p>
-                        <progress class="progress is-link" value="60" max="100"></progress>
-                        <p class="title is-5">Sunlight:<span id="sunlight" class="subtitle is-6 ml-2">Any</span></p>
-                        <p class="title is-5">Hardiness:<span id="hardiness" class="subtitle is-6 ml-2">7-7</span></p>
-                        <footer class="card-footer">
-                            <p class= "card-footer-item">
-                                <button class="button is-warning is-outlined">
-                                    <span class="icon">
-                                        <i class="fa fa-heart"></i>
-                                    </span>
-                                </button>
-                            </p>
-                            <p class= "card-footer-item">
-                                <button class="button is-warning is-outlined">
-                                    <span class="icon">
-                                        <i class="fa fa-trash"></i>
-                                    </span>
-                                </button>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-                <div class="column card is-one-fifth m-1">
-                    <div class="card-image">
+        <div id="load-modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title has-text-centered">Load Plants Data</p>
+                <button id="close-modal" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body has-text-centered">
+                <p>Please click the button below to load plants data.</p>
+            </section>
+            <footer class="modal-card-foot is-flex is-justify-content-center">
+                <a href="./index.html"><button id="" class="button is-danger mx-3">Go Back</button></a>
+                <button id="load-button" class="button is-success mx-3">Load Data</button>
+            </footer>
+            </div>
+        </div>
+
+        <div id="plant-list-container" class="card mt-5"></div>
+
+
+        <button id="create-card">button<button>
+            
+            <div id="row-1" class="mt-6">
+                <div class="columns mx-6 is-centered box">
+                    <div class="column card is-one-fifth m-1">
+                        <div class="card-image">
                         <figure class="image">
                             <img id="medium-image" src="https://perenual.com/storage/species_image/1_abies_alba/og/1536px-Abies_alba_SkalitC3A9.jpg" alt="Placeholder image">
                         </figure>
@@ -149,7 +142,7 @@
             </p>
         </div>
     </footer>
-
+    <script src="./assets/js/myplants.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
