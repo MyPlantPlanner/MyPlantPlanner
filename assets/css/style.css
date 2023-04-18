@@ -1,5 +1,13 @@
+:root {
+    --terrocatta: rgba(226, 114, 91);
+}
+
 .new {
     border: 1px solid gray;
+}
+
+body {
+    font-family: 'Philosopher', sans-serif;
 }
 
 form {
@@ -47,6 +55,11 @@ input[type="search"]:focus {
     box-shadow: 0 0 3px 0 #1183d6;
     border-color: #1183d6;
     outline: none;
+}
+
+.terracotta  {
+    background-color: var(--terrocatta);
+    width: 100%;
 }
 
 

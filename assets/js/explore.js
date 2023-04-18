@@ -2,8 +2,7 @@
 const explorePlantsMap = new Map();
 const pageForwardButton = document.getElementById('page-forward');
 const pageBackButton = document.getElementById('page-back');
-const APIKey = 'sk-A5va6434c28d91fdb480';
-
+const APIKey = 'sk-gZWW6438a93be1f2f505';
 let currentPage = 1;
 
 const loadPlantsData = () => {
@@ -85,17 +84,35 @@ function populatePlants(pageNumber) {
                 </div>
                 <footer class="card-footer is-flex-shrink-0">
                     <p class= "card-footer-item">
-                        <button class="button is-warning is-outlined">
-                            <span class="icon">
-                                <i class="fa fa-heart"></i>
-                            </span>
-                        </button>
                     </p>
                 </footer>
             `;
-            plantListContainer.appendChild(plantListItem);
-        }
-    });
+            // Create the heart button
+            const heartButton = document.createElement('button');
+            heartButton.className = 'button is-warning is-outlined';
+            heartButton.innerHTML = `
+                <span class="icon">
+                    <i class="fa fa-heart"></i>
+                </span>
+                `;
+            // Heart button click handler
+            heartButton.addEventListener('click', () => {
+                const commonName = plant.common_name;
+            
+                // check if the plant is already in the Favorites array
+                if (!Favorites.includes(commonName)) {
+                    // add the common name to the Favorites array and save to localStorage
+                    Favorites.push(commonName);
+                    saveFavorites(Favorites);
+                }
+            });
+            
+            // Append the heart button to the card footer
+            const footer = plantListItem.querySelector('.card-footer');
+            footer.querySelector('.card-footer-item').appendChild(heartButton);
+                    plantListContainer.appendChild(plantListItem);
+                }
+            });
 }
 
     pageForwardButton.addEventListener('click', () => {
@@ -111,7 +128,7 @@ pageBackButton.addEventListener('click', () => {
 })
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    if (explorePlantsMap.size === 0) {
+    if (!localStorage.getItem('explorePlantsMap' || new Map(JSON.parse(localStorage.getItem('explorePlantsMap'))).size === 0)) {
         const modal = document.getElementById('load-modal');
         modal.style.display = 'block';
 
@@ -120,5 +137,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             loadPlantsData();
             modal.style.display = 'none';
         });
+    } else {
+        populatePlants();
     }
 });

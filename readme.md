@@ -15,14 +15,22 @@ SO THAT I can manage my plants and keep them healthy
 ## Acceptance Criteria
 
 ```md
-GIVEN 
-WHEN
-THEN
+GIVEN A website with plants
+WHEN I visit the site
+THEN I see information about the site
+WHEN I got to explore plants
+THEN the plants are generated on the page
+WHEN I favorite a plant
+THEN it appears on "My Plants" page with more information about the plant
+WHEN I visit the site
+THEN I can watch youtube videos about plants
 ```
 
 The following animation demonstrates the application functionality:
 
-<!-- ![A user clicks on slots on the color-coded calendar and edits the events.](insert gif) -->
+![Load Explore Plants page](./assets/images/MPP-%20Explore.gif)
+
+![]()
 
 ## Installation
 
@@ -33,5 +41,5 @@ You can access the deployed application with the GitHub Pages link: https://MyPl
 ### Authors
 
 ```
-
+[](https://github.com/)
 ```

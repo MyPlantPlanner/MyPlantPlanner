@@ -6,8 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPlantPlanner - Home</title>
+<!--Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap">
+
+    <!--Bulma-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom Style-->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -18,12 +24,12 @@
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
-                        <div class="navbar-brand">
-                            <a class="navbar-item">
+                        <div class="navbar-brand is-active">
+                            <a class="navbar-item" href="index.html">
                                 <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner
                                 </h1>
                             </a>
-                            <span class="navbar-burger" data-target="navbarMenuHeroA">
+                            <span class="navbar-burger" id="plant" data-target="navbarMenuHeroA">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -31,13 +37,13 @@
                         </div>
                         <div id="navbarMenuHeroA" class="navbar-menu">
                             <div class="navbar-end">
-                                <a class="navbar-item is-active" href="./index.html">
+                                <a class="navbar-item" href="./index.html">
                                     Home
                                 </a>
                                 <a class="navbar-item" href="./myplants.html">
                                     My Plants
                                 </a>
-                                <a class="navbar-item" href="./explore.html">
+                                <a class="navbar-item is-active" href="./explore.html">
                                     Explore
                                 </a>
                                 <span class="navbar-item">
@@ -69,98 +75,66 @@
                     <h2 id="herosubtitle">
                         From keeping track of your watering, to learning more specifics about your plants, myPlantPlanner has something that every indoor plant enthusiast will love!
                     </h2>
-                    <button class="button is-success p-5 m-4 has-text-weight-bold">Get Started</button>
+                    <a href="explore.html">
+                        <a href="./explore.html"><button class="button is-success p-5 m-4 has-text-weight-bold">Explore!</button></a>
+                    </a>
                 </div>
+                <div id="player"></div>
             </div>
         </section>
 
 <section>
     <div class="columns">
         <div class="column">
-          <p class="bd-notification is-info"></p>
-          <div class="columns is-mobile">
-            <div class="column">
-              <p class="bd-notification is-info"></p>
-              <h4 class="box">How to Use</h4> <h4 class="title is-4">Importance of Houseplants</h4>
+            <p class="bd-notification is-info"></p>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <p class="bd-notification is-info"></p>
+                    <h4 class="box">How to Use</h4> <h4 class="title is-4">Importance of Houseplants</h4>
 
-              <figure>
-                <img class="project-image"
-                    src="https://www.thespruce.com/thmb/VF8JJ0PT75Eytn5Ng6rj-3MzdbQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/most-popular-houseplants-4766580-2-71981826fb0a461786109b3e4f5aa09d.jpg">
+                    <figure>
+                        <img class="project-image"
+                        src="https://www.thespruce.com/thmb/VF8JJ0PT75Eytn5Ng6rj-3MzdbQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/most-popular-houseplants-4766580-2-71981826fb0a461786109b3e4f5aa09d.jpg" alt="Houseplants on a shelf">
                 
-            </figure>
-              <blockquote>
-                Houseplants are more than just decorative pieces for your home or office. They offer numerous benefits that extend beyond their aesthetic appeal. 
-                <ul>
-                    <li>Plants improve indoor air quality by removing harmful pollutants such as formaldehyde, benzene,and carbon monoxide.</li>
-                    <li>Indoor plants also boost productivity, concentration and creativity by reducing stress and promoting a sense of calm.  
-                    </li>
-                    <li></li>
-                  </ul>
-                 My Plant Planner is here to help you keep track of the health of your indoor plants and improve your quality of life!
-                
-            </blockquote>
+                    </figure>
+                    <blockquote>
+                        Houseplants are more than just decorative pieces for your home or office. They offer numerous benefits that extend beyond their aesthetic appeal. 
+                        <ul>
+                            <li>Plants improve indoor air quality by removing harmful pollutants such as formaldehyde, benzene,and carbon monoxide.</li>
+                            <li>Indoor plants also boost productivity, concentration and creativity by reducing stress and promoting a sense of calm.  
+                            </li>
+                            <li></li>
+                        </ul>
+                        My Plant Planner is here to help you keep track of the health of your indoor plants and improve your quality of life!                
+                        </blockquote>
             
-            </div>
-            <div class="column">
-              <p class="bd-notification is-info"></p>
-              <div class="block">
-                Caring for houseplants can have numerous benefits for voth your physical and mental health. Plants are low-maintenance and affordable, making them an easy, and necessary, addition to any space!
-              </div>
-              <figure>
-                <img class="project-image"
-                  src="https://media.istockphoto.com/id/510059940/photo/miniature-succulent-plants.jpg?s=1024x1024&w=is&k=20&c=97T6inseCGLnBI2XIdUVNW1Kl335s3bFa50eGB3NJ2k=">
-            </figure>
-            <h4 class="title is-4">About My Plant Planner</h4>
-            <p>Here at MPP we <strong>love</strong> indoor plants!! We believe that plants are more than just objects- they are living beings that have the power to enrich our homes, offices, and communities, and to inspire a deeper connection to nature. We are dedicated to promoting the benefits of plants, and to fostering a sense of joy, creativity and well-being. By tracking the watering and care schedules of your indoor plants, you assure that your plants are getting the TLC they need- with less stress!
-                </p>
+                </div>
+                    <div class="column">
+                        <p class="bd-notification is-info"></p>
+                        <div class="block">
+                            Caring for houseplants can have numerous benefits for voth your physical and mental health. Plants are low-maintenance and affordable, making them an easy, and necessary, addition to any space!
+                        </div>
+                    <figure>
+                        <img class="project-image"
+                        src="https://media.istockphoto.com/id/510059940/photo/miniature-succulent-plants.jpg?s=1024x1024&w=is&k=20&c=97T6inseCGLnBI2XIdUVNW1Kl335s3bFa50eGB3NJ2k=" alt="picture of succulents">
+                    </figure>
+                    <h4 class="title is-4">About My Plant Planner</h4>
+                    <p>Here at MPP we <strong>love</strong> indoor plants!! We believe that plants are more than just objects- they are living beings that have the power to enrich our homes, offices, and communities, and to inspire a deeper connection to nature. We are dedicated to promoting the benefits of plants, and to fostering a sense of joy, creativity and well-being. By tracking the watering and care schedules of your indoor plants, you assure that your plants are getting the TLC they need- with less stress!
+                    </p>
                 
-              <div class="block">
-                <br>
-                Take care of your plants and they will take care of you!
-              </div>
-            
+                    <div class="block">
+                        <br>
+                        Take care of your plants and they will take care of you!
+                    </div>
+                    
+                </div>
             </div>
-          </div>
         </div>
-        
-
-        <!--<div class="block">
-            This text is within a <strong>block</strong>.
-          </div>
-          <h2>How to Use</h2>
-          <p>My Plant Planner will help you keep track of .......Aliquam sagittis rhoncus vulputate. Cras non luctus sem,
-              sed tincidunt ligula. Vestibulum at nunc
-              elit. Praesent aliquet ligula mi, in luctus elit volutpat porta. Phasellus molestie diam vel
-              nisi sodales, a eleifend augue laoreet. Sed nec eleifend justo. Nam et sollicitudin odio.</p>
-          <figure>
-              <img class="project-image"
-                  src="https://www.thespruce.com/thmb/VF8JJ0PT75Eytn5Ng6rj-3MzdbQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/most-popular-houseplants-4766580-2-71981826fb0a461786109b3e4f5aa09d.jpg">
-              
-          </figure>
-
-          <div class="block">
-            This text is within a <strong>second block</strong>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-          </div>
-          <h2>About My Plant Planner</h2>
-        <p>Here at MPP we love plants!! Our mission is to help you take care of your plants so that you can have
-            .....Cras in nibh lacinia, venenatis nisi et, auctor urna. Donec pulvinar lacus sed diam dignissim, ut
-            eleifend eros accumsan. Phasellus non tortor eros. Ut sed rutrum lacus. Etiam purus nunc,
-            scelerisque quis enim vitae, malesuada ultrices turpis. Nunc vitae maximus purus, nec
-            consectetur dui. Suspendisse euismod, elit vel rutrum commodo, ipsum tortor maximus dui, sed
-            varius sapien odio vitae est. Etiam at cursus metus.</p>
-            <figure>
-                <img class="project-image"
-                  src="https://media.istockphoto.com/id/510059940/photo/miniature-succulent-plants.jpg?s=1024x1024&w=is&k=20&c=97T6inseCGLnBI2XIdUVNW1Kl335s3bFa50eGB3NJ2k=">
-            </figure>
-          <div class="block">
-            This text is within a <strong>third block</strong>. This block has no margin at the bottom.
-          </div>-->
-
         
         </section>
     </main>
 
-    <footer class="footer has-background-primary has-text-centered is-flex is-flex-direction-column mt-6">
+    <footer class="footer has-text-centered is-flex is-flex-direction-column mt-6 terracotta" >
         <p class="title is-4">Contact</p>
         <p class="subtitle is-5"><a href="mailto:hege@example.com">contact@example.com</a></p>
         <div id="media-icons" class="">
