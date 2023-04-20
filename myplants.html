@@ -19,16 +19,15 @@
 <body>
     <header>
         <section class="hero is-success has-background-success-dark is-medium">
-            <!-- Hero head: will stick at the top -->
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
-                        <div class="navbar-brand">
+                        <div class="navbar-brand is-active">
                             <a class="navbar-item" href="index.html">
                                 <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner
                                 </h1>
                             </a>
-                            <span class="navbar-burger" data-target="navbarMenuHeroA">
+                            <span class="navbar-burger is-justify-content-center" id="plant" data-target="navbarMenuHeroA">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -39,12 +38,13 @@
                                 <a class="navbar-item" href="./index.html">
                                     Home
                                 </a>
-                                <a class="navbar-item is-active" href="#">
+                                <a class="navbar-item is-active" href="./myplants.html">
                                     My Plants
                                 </a>
                                 <a class="navbar-item" href="./explore.html">
                                     Explore
                                 </a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -52,29 +52,28 @@
             </div>
         </section>
     </header>
-
     
     <main>
         <div id="load-modal" class="modal">
             <div class="modal-background"></div>
             <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title has-text-centered">Load Plants Data</p>
+                <p class="modal-card-title has-text-centered">Find some Plants!</p>
                 <button id="close-modal" class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body has-text-centered">
-                <p>Please click the button below to load plants data.</p>
+                <p>Please click the EXPLORE button below to favorite some plants</p>
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-center">
-                <a href="./index.html"><button id="" class="button is-danger mx-3">Go Back</button></a>
-                <button id="load-button" class="button is-success mx-3">Load Data</button>
+                <a href="./index.html"><button id="" class="button is-danger mx-3">Home</button></a>
+                <a href="./explore.html"><button id="load-button" class="button is-success mx-3">Explore</button></a>
             </footer>
             </div>
         </div>
 
-        <div class="columns mt-6 is-flex is-justify-content-center"><button id="clear-favorites" class="button column is-one-third align-text">Clear Favorites</button></div>
+        <div class="columns mt-6 is-flex is-justify-content-center is-mobile"><button id="clear-favorites" class="button column is-one-third align-text">Clear Favorites</button></div>
 
-        <div id="plant-list-container" class="card mt-5"></div>
+        <div id="plant-list-container" class="card mt-5 is-mobile is-multiline"></div>
         
     </main>
 

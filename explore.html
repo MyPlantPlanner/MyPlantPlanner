@@ -17,15 +17,16 @@
 
 <body>
     <header>
-        <section class="hero is-success has-background-success-dark is-medium mb-5">
+        <section class="hero is-success has-background-success-dark is-medium">
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
-                        <div class="navbar-brand">
+                        <div class="navbar-brand is-active">
                             <a class="navbar-item" href="index.html">
-                                <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner</h1>
+                                <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner
+                                </h1>
                             </a>
-                            <span class="navbar-burger" data-target="navbarMenuHeroA">
+                            <span class="navbar-burger is-justify-content-center" id="plant" data-target="navbarMenuHeroA">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -42,6 +43,7 @@
                                 <a class="navbar-item is-active" href="./explore.html">
                                     Explore
                                 </a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -68,10 +70,10 @@
     </div>
     
     <main>
-        <div id="enumerate-objects" class="container">
+        <div id="enumerate-objects" class="container mt-6">
             <div id="row-0">
                 <!-- Search bar and page left or right with arrow buttons -->
-                <div class="columns is-centered">
+                <div class="columns is-centered is-mobile">
                     <div class="is-one-fifth mx-2">
                         <button id="page-back" class="button is-dark">&larr;</button>
                     </div>
@@ -88,7 +90,7 @@
             </div>
         </div>
 
-        <div id="plant-list-container" class="card mt-5"></div>
+        <div id="plant-list-container" class="card mt-5 columns is-mobile is-multiline"></div>
     </main>
 
     <footer class="footer terracotta has-text-centered is-flex is-flex-direction-column mt-6 has-text-white-bis">

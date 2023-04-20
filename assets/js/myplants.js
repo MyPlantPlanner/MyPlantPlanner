@@ -1,6 +1,6 @@
 // This js file is linked to the myplants.html
 // Declarations  
-const APIKey = 'sk-gZWW6438a93be1f2f505';
+const APIKey = 'sk-o70n6441a3373bbbc587';
 const favoritePlantsMap = new Map();
 const plantFavorites = JSON.parse(localStorage.getItem('Favorites'));
 const clearFavorites = document.getElementById('clear-favorites');
@@ -34,7 +34,6 @@ const loadPlantsData = () => {
     });
     Promise.all(promises)
         .then(() => {
-            console.log(favoritePlantsMap);
             const favoritePlantsArray = Array.from(favoritePlantsMap.entries());
             localStorage.setItem(
                 "favoritePlantsMap",
@@ -72,7 +71,7 @@ function populatePlants() {
 
             // Create the plant list item
             const plantListItem = document.createElement('div');
-            plantListItem.className = 'column card is-one-fifth m-1 is-flex is-flex-direction-column';
+            plantListItem.className = 'column card is-one-fifth m-1 is-flex is-flex-direction-column is-half-mobile';
             plantListItem.innerHTML = `
                 <div class="card-image">
                     <figure class="image is-4by3">
@@ -121,31 +120,35 @@ clearFavorites.addEventListener('click', function() {
 });
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    let favoritePlantsMap = new Map();
+    let favorites = [];
 
     // Check if data exists in local storage
-    const localData = localStorage.getItem('favoritePlantsMap');
+    const localData = localStorage.getItem('Favorites');
     if (localData) {
-        favoritePlantsMap = new Map(JSON.parse(localStorage.getItem('favoritePlantsMap')));
+        favorites = JSON.parse(localStorage.getItem('Favorites'));
     }
 
-    populatePlants();
-
-    // If data exists, set favoritePlantsMap to the parsed data from local storage
-    if (localData) {
-    favoritePlantsMap = new Map(JSON.parse(localData));
-    }
-    if (favoritePlantsMap.size === 0) {
+    // If favorites is empty or doesn't exist, show the modal
+    if (!favorites || favorites.length === 0) {
         const modal = document.getElementById('load-modal');
         modal.style.display = 'block';
-
-        const loadButton = document.getElementById('load-button');
-        loadButton.addEventListener('click', () => {
-            loadPlantsData();
-            modal.style.display = 'none';
-        });
     } else {
+        loadPlantsData();
         populatePlants();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
     }
 });
 

@@ -2,7 +2,7 @@
 const explorePlantsMap = new Map();
 const pageForwardButton = document.getElementById('page-forward');
 const pageBackButton = document.getElementById('page-back');
-const APIKey = 'sk-gZWW6438a93be1f2f505';
+const APIKey = 'sk-o70n6441a3373bbbc587';
 let currentPage = 1;
 
 // function to save the Favorites array to localStorage
@@ -78,7 +78,7 @@ function populatePlants(pageNumber) {
 
             // Create the plant list item
             const plantListItem = document.createElement('div');
-            plantListItem.className = 'column card is-one-fifth m-1 is-flex is-flex-direction-column';
+            plantListItem.className = 'column card is-one-fifth m-1 is-flex is-flex-direction-column is-half-mobile';
             plantListItem.innerHTML = `
                 <div class="card-image">
                     <figure class="image is-4by3">
@@ -164,5 +164,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
         });
     } else {
         populatePlants(currentPage);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
     }
 });

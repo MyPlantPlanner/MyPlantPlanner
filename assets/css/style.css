@@ -123,9 +123,9 @@ blockquote {
 */
 
 #nav-toggle-state {
-  display: none;
+    display: none;
 }
 
 #nav-toggle-state:checked ~ .nav-menu {
-  display: block;
+    display: block;
 }
