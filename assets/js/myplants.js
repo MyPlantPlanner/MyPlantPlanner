@@ -117,6 +117,7 @@ function populatePlants() {
 clearFavorites.addEventListener('click', function() {
     localStorage.removeItem('Favorites');
     localStorage.removeItem('favoritePlantsMap');
+    window.location.reload();
 });
 
 window.addEventListener('DOMContentLoaded', (event) => {
