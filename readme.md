@@ -52,8 +52,8 @@ You can access the deployed application with the GitHub Pages link: https://MyPl
 
 ### Authors
 
-- [deemmore](https://github.com/deemmoore)
+- [Dedrick Moore](https://github.com/deemmoore)
 - [Lauren Smith](https://github.com/LauSmi)
 - [Pier Salloum](https://github.com/PierSalloum)
 - [Randall Taylor](https://github.com/RandyYanish)
-- [tomarmenta86](https://github.com/tomarmenta86)
+- [Thomas Armenta](https://github.com/tomarmenta86)
