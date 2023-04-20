@@ -31,7 +31,7 @@ THEN the plants are generated on the page
 WHEN I favorite a plant
 THEN it appears on "My Plants" page with more information about the plant
 WHEN I visit the site
-THEN I can watch youtube videos about plants
+THEN I can a youtube video about our site
 ```
 
 The following animation demonstrates the application functionality:
@@ -44,10 +44,9 @@ The following animation demonstrates the application functionality:
 
 The project was uploaded to GitHub at the following repository: https://github.com/MyPlantPlanner/MyPlantPlanner/
 
-You can access the deployed application with the GitHub Pages link: https://MyPlantPlanner.github.io/MyPlantPlanner
+You can access the deployed application with the GitHub Pages link: https://MyPlantPlanner.github.io/MyPlantPlanner/index.html
 
 ### Authors
 
 ```
-[](https://github.com/)
 ```
