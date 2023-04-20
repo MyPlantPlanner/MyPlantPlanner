@@ -3,22 +3,21 @@
 const APIKey = 'sk-gZWW6438a93be1f2f505';
 const favoritePlantsMap = new Map();
 const plantFavorites = JSON.parse(localStorage.getItem('Favorites'));
+const clearFavorites = document.getElementById('clear-favorites');
+
+// function to save the Favorites array to localStorage
+const saveFavorites = (favorites) => {
+    localStorage.setItem('Favorites', JSON.stringify(favorites));
+};
+
+// get Favorites array from localStorage, or create an empty array if it doesn't exist
+let Favorites = JSON.parse(localStorage.getItem('Favorites')) || [];
 
 // Function to pull information from api
 const loadPlantsData = () => {
-    let favoritePlantsMap = new Map();
-
-    // Loop through each index in saved to localStorage
-    for (let i = 0; i < plantFavorites.length; i++) {
-        const plantId = plantFavorites[i];
-
-        const fetchData = () => {
-        const queryURL =
-            "https://perenual.com/api/species/details/" +
-            plantId +
-            "?key=" +
-            APIKey;
-        fetch(queryURL)
+    const promises = plantFavorites.map((plantId) => {
+        const queryURL = `https://perenual.com/api/species/details/${plantId}?key=${APIKey}`;
+        return fetch(queryURL)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -26,33 +25,24 @@ const loadPlantsData = () => {
                 throw new Error("Network response was not ok.");
                 })
             .then((data) => {
-                
                 const common_name = data.common_name;
                 favoritePlantsMap.set(common_name, data);
-                i++;
-                if (i === plantFavorites.length) {
-                    console.log(favoritePlantsMap);
-                    favoritePlantsMap = Array.from(favoritePlantsMap.entries());
-                    localStorage.setItem(
-                        "favoritePlantsMap",
-                        JSON.stringify(favoritePlantsMap)
-                        );
-                        populatePlants();
-                } else {
-                    fetchData();
-                }
             })
             .catch((error) => {
                 console.error("There was a problem fetching the data:", error);
             });
-        };
-        fetchData();
-    }
+    });
+    Promise.all(promises)
+        .then(() => {
+            console.log(favoritePlantsMap);
+            const favoritePlantsArray = Array.from(favoritePlantsMap.entries());
+            localStorage.setItem(
+                "favoritePlantsMap",
+                JSON.stringify(favoritePlantsArray)
+            );
+        populatePlants();
+    });
 };
-
-
-
-
 
 function populatePlants() {
     let favoritePlantsMap = new Map(JSON.parse(localStorage.getItem('favoritePlantsMap')));
@@ -118,34 +108,16 @@ function populatePlants() {
                     </p>
                 </footer>
             `;
-            // Create the heart button
-            const trashButton = document.createElement('button');
-            trashButton.className = 'button is-warning is-outlined';
-            trashButton.innerHTML = `
-                <span class="icon">
-                    <i class="fa fa-trash"></i>
-                </span>
-                `;
-            // Heart button click handler
-            trashButton.addEventListener('click', () => {
-                const plantID = plant.id;
-            
-                // check if the plant is already in the Favorites array
-                if (!Favorites.includes(plantID)) {
-                    // remove the plantID from the Favorites array and save to localStorage
-                    const index = Favorites.indexOf(plantID);
-                    Favorites.splice(index, 1);
-                    saveFavorites(Favorites);
-                }
-            });
-            
-            // Append the heart button to the card footer
-            const footer = plantListItem.querySelector('.card-footer');
-            footer.querySelector('.card-footer-item').appendChild(trashButton);
-                    plantListContainer.appendChild(plantListItem);
-                }
-            });
+
+            plantListContainer.appendChild(plantListItem);
+        }
+    });
 }
+
+clearFavorites.addEventListener('click', function() {
+    localStorage.removeItem('Favorites');
+    localStorage.removeItem('favoritePlantsMap');
+});
 
 window.addEventListener('DOMContentLoaded', (event) => {
     let favoritePlantsMap = new Map();
