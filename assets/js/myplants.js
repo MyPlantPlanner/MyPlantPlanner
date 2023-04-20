@@ -2,45 +2,57 @@
 // Declarations  
 const APIKey = 'sk-gZWW6438a93be1f2f505';
 const favoritePlantsMap = new Map();
+const plantFavorites = JSON.parse(localStorage.getItem('Favorites'));
 
-//constPlan = document.guerySelector(buger)
-//cont navbarmenus document(quryer guerySelector) Trying to fix hamburger menu
-//plant addEventListener( <(. addEventListener() 
-//constat
+// Function to pull information from api
 const loadPlantsData = () => {
-    let i = 1;
-    const fetchData = () => {
-    const queryURL =
-        "https://perenual.com/api/species-detail/" +
-        i +
-        "?key=" + 
-        APIKey; 
-    fetch(queryURL)
-        .then((response) => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error("Network response was not ok.");
-        })
-        .then(data => {
-            if (data && data.data && data.data.length > 0) {
-                data.data.forEach(plant => {
-                    favoritePlantsMap.set(plant.common_name, plant);
-                });
+    let favoritePlantsMap = new Map();
+
+    // Loop through each index in saved to localStorage
+    for (let i = 0; i < plantFavorites.length; i++) {
+        const plantId = plantFavorites[i];
+
+        const fetchData = () => {
+        const queryURL =
+            "https://perenual.com/api/species/details/" +
+            plantId +
+            "?key=" +
+            APIKey;
+        fetch(queryURL)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error("Network response was not ok.");
+                })
+            .then((data) => {
+                
+                const common_name = data.common_name;
+                favoritePlantsMap.set(common_name, data);
                 i++;
-                fetchData();
-            } else {
-                localStorage.setItem('favoritePlantsMap', JSON.stringify(Array.from(favoritePlantsMap.entries())));
-                populatePlants(currentPage);
-                console.log(favoritePlantsMap);
-            }
-        })
-        .catch((error) => {
-        console.error("There was a problem fetching the data:", error);
-        });
-    };
-    fetchData();
+                if (i === plantFavorites.length) {
+                    console.log(favoritePlantsMap);
+                    favoritePlantsMap = Array.from(favoritePlantsMap.entries());
+                    localStorage.setItem(
+                        "favoritePlantsMap",
+                        JSON.stringify(favoritePlantsMap)
+                        );
+                        populatePlants();
+                } else {
+                    fetchData();
+                }
+            })
+            .catch((error) => {
+                console.error("There was a problem fetching the data:", error);
+            });
+        };
+        fetchData();
+    }
 };
+
+
+
+
 
 function populatePlants() {
     let favoritePlantsMap = new Map(JSON.parse(localStorage.getItem('favoritePlantsMap')));
@@ -59,6 +71,14 @@ function populatePlants() {
             const imageUrl = plant.default_image.original_url || '';
             const commonName = plant.common_name || '';
             const scientificName = plant.scientific_name || '';
+            const description = plant.description || '';
+            const watering = plant.watering || '';
+            const maintenance = plant.maintenance || '';
+            const propagation = plant.propagation || '';
+            const hardinessMin = plant.hardiness.min || '';
+            const hardinessMax = plant.hardiness.max || '';
+            const sunlight = plant.sunlight || '';
+            const growthRate = plant.growth_rate || '';
 
             // Create the plant list item
             const plantListItem = document.createElement('div');
@@ -71,9 +91,25 @@ function populatePlants() {
                 </div>
                 <div class="card-content is-flex-grow-1">
                     <div class="media">
-                        <div class="media-content">
-                            <p id="common-name" class="title is-3">${commonName}</p>
-                            <p id="scientific-name" class="subtitle is-6">${scientificName}</p>
+                        <div class="media-content">                            
+                                    <p id="common-name" class="title is-3">${commonName}</p>
+                                    <p id="scientific-name" class="subtitle is-6">${scientificName}</p>
+                                    <p class="subtitle is-5 has-text-black">Description:</p>
+                                    <p id="description" class="subtitle is-6">${description}</p>
+                                    <p class="subtitle is-5 has-text-black">Watering:</p>
+                                    <p id="watering" class="subtitle is-6">${watering}</p>
+                                    <p class="subtitle is-5 has-text-black">Maintenance:</p>
+                                    <p id="maintenance" class="subtitle is-6">${maintenance}</p>
+                                    <p class="subtitle is-5 has-text-black">Propagation:</p>
+                                    <p id="propagation" class="subtitle is-6">${propagation}</p>
+                                    <p class="subtitle is-5 has-text-black">Hardiness:</p>
+                                    <p id="hardiness" class="subtitle is-6">${hardinessMin} - ${hardinessMax}</p>
+                                    <p class="subtitle is-5 has-text-black">Sunlight</p>
+                                    <p id="sunlight" class="subtitle is-6">${sunlight}</p>
+                                    <p class="subtitle is-5 has-text-black">Growth Rate:</p>
+                                    <p id="growth-rate" class="subtitle is-6">${growthRate}</p>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -83,79 +119,33 @@ function populatePlants() {
                 </footer>
             `;
             // Create the heart button
-            const heartButton = document.createElement('button');
-            heartButton.className = 'button is-warning is-outlined';
-            heartButton.innerHTML = `
+            const trashButton = document.createElement('button');
+            trashButton.className = 'button is-warning is-outlined';
+            trashButton.innerHTML = `
                 <span class="icon">
-                    <i class="fa fa-heart"></i>
+                    <i class="fa fa-trash"></i>
                 </span>
                 `;
             // Heart button click handler
-            heartButton.addEventListener('click', () => {
+            trashButton.addEventListener('click', () => {
                 const plantID = plant.id;
             
                 // check if the plant is already in the Favorites array
                 if (!Favorites.includes(plantID)) {
-                    // add the common name to the Favorites array and save to localStorage
-                    Favorites.push(plantID);
+                    // remove the plantID from the Favorites array and save to localStorage
+                    const index = Favorites.indexOf(plantID);
+                    Favorites.splice(index, 1);
                     saveFavorites(Favorites);
                 }
             });
             
             // Append the heart button to the card footer
             const footer = plantListItem.querySelector('.card-footer');
-            footer.querySelector('.card-footer-item').appendChild(heartButton);
+            footer.querySelector('.card-footer-item').appendChild(trashButton);
                     plantListContainer.appendChild(plantListItem);
                 }
             });
 }
-
-const cardForm = `
-        <div class="card-image">
-            <figure class="image">
-                <img id="medium-image" src="https://perenual.com/storage/species_image/1_abies_alba/og/1536px-Abies_alba_SkalitC3A9.jpg" alt="Placeholder image">
-            </figure>
-        </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p id="common-name" class="title is-3">European Silver Fir</p>
-                    <p id="scientific-name" class="subtitle is-6">Abies alba</p>
-                </div>
-            </div>
-            <p class="title is-5">Watering:<span id="watering" class="subtitle is-6 ml-2">Frequent</span></p>
-            <progress class="progress is-link" value="60" max="100"></progress>
-            <p class="title is-5">Sunlight:<span id="sunlight" class="subtitle is-6 ml-2">Any</span></p>
-            <p class="title is-5">Hardiness:<span id="hardiness" class="subtitle is-6 ml-2">7-7</span></p>
-            <footer class="card-footer">
-                <p class="card-footer-item">
-                    <button class="button is-warning is-outlined">
-                        <span class="icon">
-                            <i class="fa fa-heart"></i>
-                        </span>
-                    </button>
-                </p>
-                <p class="card-footer-item">
-                    <button class="button is-warning is-outlined">
-                        <span class="icon">
-                            <i class="fa fa-trash"></i>
-                        </span>
-                    </button>
-                </p>
-            </footer>
-        </div>
-    </div>
-`;
-
-// const cardContainer = document.querySelector("row-1");
-// const createCardBtn = document.getElementById("create-card");
-
-// createCardBtn.addEventListener("click", function() {
-//   const newCard = document.createElement("div");
-//   newCard.classList.add("card", "is-one-fifth", "m-1");
-//   newCard.innerHTML = cardForm;
-//   cardContainer.appendChild(newCard);
-// });
 
 window.addEventListener('DOMContentLoaded', (event) => {
     let favoritePlantsMap = new Map();
@@ -185,3 +175,39 @@ window.addEventListener('DOMContentLoaded', (event) => {
         populatePlants();
     }
 });
+
+////watering button function
+
+// function WateringBtn(){
+//     var waterBtn = document.createElement('div');
+//     waterBtn.className = 'special';
+// waterBtn.innerHTML = `
+//     <button id="saveBtn" class="icon">
+//       <i class="fa fa-tint"></i>
+//     </button>
+//     <span class="field">
+//       <label for="userInputDays">Water again in...</label> 
+//       <div class="control">
+//         <input id="userInputDays" type="number" min="1" max="14" value="1">
+//         <label for="userInputDays">day(s)</label> 
+//       </div>
+//     </span>
+//   `;
+
+//     const footer = document.querySelector('.card-footer');
+//     footer.appendChild(waterBtn);
+
+//     const userInput = document.getElementById("userInputDays")
+//     const saveButton = document.getElementById("saveBtn")
+//     
+
+    // saveButton.addEventListener('click', () => {
+    //     const userInput = parseInt(saveButton.value);
+    //     localStorage.setItem('userInput', userInput);
+
+    //     const wateringDate = new Date();
+    //     wateringDate.setDate(wateringDate.getDate() + userInput);
+
+        
+    // });
+//}

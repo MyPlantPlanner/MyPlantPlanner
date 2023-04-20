@@ -66,6 +66,8 @@ input[type="search"]:focus {
 .column,
 .special {
     margin: 10px;
+    margin-top: -6px;
+    padding-top: 0%;
     background: linear-gradient(#f3ecec, #1cb365);
 }
 
@@ -92,15 +94,15 @@ blockquote {
 .hero-img {
     background-image: url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg);
     height: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/450E9326-0272-405C-B8D614C72BED9F89/52F2110A-1CAA-43C0-BE84F352D8AB0835/WebsiteJpg_XL-FPLS_Main%20Visual_Green_Website.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://static.vecteezy.com/ti/vecteur-libre/p1/12086596-fond-de-jungle-tropicale-avec-palmiers-et-feuilles-sur-fond-blanc-vectoriel.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .container-hero-text {
     color: white;
-    margin-top: 25%;
-    margin-bottom: 25%;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
 #herotitle{
@@ -110,4 +112,20 @@ blockquote {
 #herosubtitle {
     color: white;
     font-size: 30px;
+}    
+
+/*.waterNow{
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 5px;
+    border-color: red;
+}
+*/
+
+#nav-toggle-state {
+  display: none;
+}
+
+#nav-toggle-state:checked ~ .nav-menu {
+  display: block;
 }

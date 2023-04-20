@@ -17,21 +17,20 @@
 
 <body>
     <header>
-        <section class="hero is-primary is-medium mb-5">
-            <!-- Hero head: will stick at the top -->
+        <section class="hero is-success has-background-success-dark is-medium mb-5">
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item" href="index.html">
-                                <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner
-                                </h1>
+                                <h1 class="navbar-brand m-3" style="font-weight: 700; font-size: 32px;">MyPlantPlanner</h1>
                             </a>
                             <span class="navbar-burger" data-target="navbarMenuHeroA">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </span>
+                        </div>
                         <div id="navbarMenuHeroA" class="navbar-menu">
                             <div class="navbar-end">
                                 <a class="navbar-item" href="./index.html">
@@ -43,14 +42,6 @@
                                 <a class="navbar-item is-active" href="./explore.html">
                                     Explore
                                 </a>
-                                <span class="navbar-item">
-                                    <a class="button is-primary is-inverted">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                        <span>Get Started</span>
-                                    </a>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -84,23 +75,23 @@
                     <div class="is-one-fifth mx-2">
                         <button id="page-back" class="button is-dark">&larr;</button>
                     </div>
-                    <form class="is-one-fifth mx-2">
+                    <div id="page-title" class="title is-0 has-text-centered is-one-fifth mx-2"></div>
+                    <!-- Future update to search for plants... -->
+                    <!-- <form class="is-one-fifth mx-2">
                         <input type="search" placeholder="Search..." class="input is-dark">
                         <button type="submit" id="search-button">Search</button>
-                    </form>
+                    </form> -->
                     <div class="is-one-fifth mx-2">
                         <button id="page-forward" class="button is-dark">&rarr;</button>
                     </div>
                 </div>
             </div>
-
-            <div id="page-title" class="title is-0 has-text-centered mt-6"></div>
         </div>
 
         <div id="plant-list-container" class="card mt-5"></div>
     </main>
 
-    <footer class="footer terracotta has-text-centered is-flex is-flex-direction-column mt-6">
+    <footer class="footer terracotta has-text-centered is-flex is-flex-direction-column mt-6 has-text-white-bis">
         <p class="title is-4">Contact</p>
         <p class="subtitle is-5"><a href="mailto:hege@example.com">contact@example.com</a></p>
         <div id="media-icons" class="">
