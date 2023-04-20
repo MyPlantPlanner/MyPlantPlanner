@@ -32,16 +32,28 @@ WHEN I favorite a plant
 THEN it appears on "My Plants" page with more information about the plant
 WHEN I visit the site
 THEN I can a youtube video about our site
+WHEN I visit the site on mobile
+THEN the site is responsive to the screen size
 ```
 
 The following animation demonstrates the application functionality:
 
-![Load Explore Plants page](./assets/images/MPP-%20Explore.gif)
+![Home page preview](./assets/images/index-scroll.gif)
 
-![]()
+![explore page preview](./assets/images/explore-preview%20(1).gif)
+
+![myplants page preview](./assets/images/myplants-preview.gif)
 
 ## Installation
 
 The project was uploaded to GitHub at the following repository: https://github.com/MyPlantPlanner/MyPlantPlanner/
 
 You can access the deployed application with the GitHub Pages link: https://MyPlantPlanner.github.io/MyPlantPlanner/
+
+### Authors
+
+- [deemmore](https://github.com/deemmoore)
+- [LauSmi](https://github.com/LauSmi)
+- [PierSalloum](https://github.com/PierSalloum)
+- [RandyYanish](https://github.com/RandyYanish)
+- [tomarmenta86](https://github.com/tomarmenta86)
