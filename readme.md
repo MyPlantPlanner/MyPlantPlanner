@@ -11,6 +11,9 @@ Search for an indoor plant by browsing between pages, or use the search bar if y
 Click on the heart button to add that plant to favorites.
 To see your favorite plants, click on My Plants.
 
+## NOTE - API
+The current API used to generate this plant data is with perenual.com. Some of their plant data files are missing information; there will be some minor issues with loading the data into the site. This could be fixed if this project is updated and built with its own database to pull from or finding a better API to get data from.
+
 
 ## User Story
 

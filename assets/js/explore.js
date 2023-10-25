@@ -2,7 +2,7 @@
 const explorePlantsMap = new Map();
 const pageForwardButton = document.getElementById('page-forward');
 const pageBackButton = document.getElementById('page-back');
-const APIKey = 'sk-o70n6441a3373bbbc587';
+const APIKey = 'sk-A5va6434c28d91fdb480';
 let currentPage = 1;
 
 // function to save the Favorites array to localStorage
